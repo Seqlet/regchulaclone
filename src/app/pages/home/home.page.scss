@@ -1,0 +1,17 @@
+@import "src/theme/variables.scss";
+.login{
+    background-color: $main-color;
+    height: 100vh;
+    width: 100vh;
+}
+.logo{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.ion-color-cu {
+    --ion-color-base: var(--ion-color-cu);
+    --ion-color-base-rgb: var(--ion-color-cu-rgb);
+    --ion-color-contrast: var(--ion-color-cu-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-cu-contrast-rgb);
+    --ion-color-shade: var(--ion-color-cu-shade);
+    --ion-color-tint: var(--ion-color-cu-tint);
+  }
