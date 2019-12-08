@@ -1,17 +1,57 @@
 @import "src/theme/variables.scss";
-.login{
-    background-color: $main-color;
-    height: 100vh;
-    width: 100vh;
-}
-.logo{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.ion-color-cu {
-    --ion-color-base: var(--ion-color-cu);
-    --ion-color-base-rgb: var(--ion-color-cu-rgb);
-    --ion-color-contrast: var(--ion-color-cu-contrast);
-    --ion-color-contrast-rgb: var(--ion-color-cu-contrast-rgb);
-    --ion-color-shade: var(--ion-color-cu-shade);
-    --ion-color-tint: var(--ion-color-cu-tint);
+.login {
+  &-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &-text {
+      font-family: CHULALONGKORN-Bold;
+      font-size: 28px;
+      padding-left: 40px;
+      align-self: flex-start;
+    }
   }
+  &-logo {
+    font-family: CHULALONGKORN-Regular;
+    font-size: 28px;
+    padding-top: 25px;
+    padding-left: 20px;
+  }
+  &-form {
+    align-self: center;
+    font-family: CHULALONGKORN-Regular;
+    width: 100%;
+    padding: 10px 20px 0px;
+    input {
+      width: 100%;
+      border-radius: 4px;
+      border: 5px;
+      height: 48px;
+    }
+    &-error {
+      height: 20px;
+    }
+    &-btn {
+      background-color: whitesmoke; /* Green */
+      border: 5px;
+      border-radius: 4px;
+      height: 48px;
+      color: black;
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+
+  background-color: $main-color;
+  height: 100%;
+  width: 100%;
+}
+
+.ion-color-cu {
+  --ion-color-base: var(--ion-color-cu);
+  --ion-color-base-rgb: var(--ion-color-cu-rgb);
+  --ion-color-contrast: var(--ion-color-cu-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-cu-contrast-rgb);
+  --ion-color-shade: var(--ion-color-cu-shade);
+  --ion-color-tint: var(--ion-color-cu-tint);
+}
