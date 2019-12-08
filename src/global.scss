@@ -24,3 +24,21 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face{
+    font-family: 'ChulaCharasNewB';
+    src: url(src/assets/fonts/ChulaCharasNew-Bold.woff2);
+}
+@font-face{
+    font-family: 'ChulaCharasNew';
+    src: url(src/assets/fonts/ChulaCharasNew.woff2);
+}
+@font-face{
+    font-family: 'CHULALONGKORN-BOLD';
+    src: url(src/assets/fonts/CHULALONGKORN-BOLD.woff2);
+}
+@font-face{
+    font-family: 'CHULALONGKORN-Regular';
+    src: url(src/assets/fonts/CHULALONGKORN-Regular.woff2);
+
+}
