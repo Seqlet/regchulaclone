@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'withdraw',
     loadChildren: () => import('./pages/withdraw/withdraw.module').then( m => m.WithdrawPageModule)
   },
+  {
+    path: 'stdinfo',
+    loadChildren: () => import('./pages/stdinfo/stdinfo.module').then( m => m.StdinfoPageModule)
+  },
 ];
 
 @NgModule({
