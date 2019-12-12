@@ -34,12 +34,13 @@
     src: url(src/assets/fonts/ChulaCharasNew.woff2);
 }
 @font-face{
-    font-family: 'CHULALONGKORN-BOLD';
+    font-family: 'cub';
     src: url(src/assets/fonts/CHULALONGKORN-BOLD.woff2);
 }
 @font-face{
-    font-family: 'CHULALONGKORN-Regular';
+    font-family: 'cur';
     src: url(src/assets/fonts/CHULALONGKORN-Regular.woff2);
 
 }
-@import '~normalize.css'
+@import '~normalize.css';
+
