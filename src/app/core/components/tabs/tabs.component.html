@@ -1,19 +1,51 @@
-
-  <div class="tabs">
-    <div class="tabs-home">
+<div class="tabs">
+  <button routerLink="/stdinfo">
+    <div class="tabs-item">
+      <ion-icon
+        name="home"
+        [class.active]="activeTab === ActiveTab.studentInfo"
+      ></ion-icon>
       Home
     </div>
-    <div class="tabs-regis">
+  </button>
+  <button routerLink="/regis">
+    <div class="tabs-item">
+      <ion-icon
+        name="create"
+        [class.active]="activeTab === ActiveTab.regis"
+        class="size"
+      ></ion-icon>
       Regis
     </div>
-    <div class="tabs-out">
+  </button>
+  <button routerLink="/regisout">
+    <div class="tabs-item">
+      <ion-icon
+        name="clipboard"
+        [class.active]="activeTab === ActiveTab.regisOutcome"
+        class="size"
+      ></ion-icon>
       Result
     </div>
-    <div class="tabs-grade">
+  </button>
+  <button routerLink="/grade">
+    <div class="tabs-item">
+      <ion-icon
+        name="school"
+        [class.active]="activeTab === ActiveTab.grade"
+        class="size"
+      ></ion-icon>
       Grade
     </div>
-    <div class="tabs-w">
+  </button>
+  <button routerLink="/withdraw">
+    <div class="tabs-item">
+      <ion-icon
+        name="sad"
+        [class.active]="activeTab === ActiveTab.withdraw"
+        class="size"
+      ></ion-icon>
       Withdraw
     </div>
-  </div>
-
+  </button>
+</div>

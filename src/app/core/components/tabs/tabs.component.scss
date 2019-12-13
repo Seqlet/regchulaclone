@@ -1,28 +1,35 @@
-.tabs{
-    position: fixed;
-    bottom: 0;
-    left: 0;
+.tabs {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: whitesmoke;
+  height: 50px;
+  &-item {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    background-color:whitesmoke;
-    height: 30px;
-    &-home {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        font-family: cur;
-    }
-    &-regis {
-        font-family: cur;
-    }
-    &-out {
-        font-family: cur;
-    }
-    &-grade {
-        font-family: cur;
-    }
-    &-w {
-        font-family: cur;
-    }
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: cur;
+  }
+  .size {
+      font-size: 20px;
+  }
+  .size1 {
+    font-size: 20px;
+    color: #ffcccc;
+
+}
+  button {
+      background-color: whitesmoke;
+  }
+  button:focus{
+      outline: 0px;
+  }
+}
+
+.active {
+    color: #DE5C8E;
 }
