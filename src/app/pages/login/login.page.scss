@@ -32,35 +32,25 @@
       height: 20px;
     }
     &-btn {
-      background-color: whitesmoke; /* Green */
+      background-color: #eff0f1;
       border: 5px;
       border-radius: 4px;
       height: 48px;
-      color: black;
+      color: #b0b0b0;
       width: 100%;
       font-size: 16px;
     }
     &-btn1 {
-        background-color:green;
+        background-color:#de5c8e;
         border: 5px;
         border-radius: 4px;
         height: 48px;
-        color: black;
+        color: white;
         width: 100%;
         font-size: 16px;
       }
   }
-
   background-color: $main-color;
   height: 100%;
   width: 100%;
-}
-
-.ion-color-cu {
-  --ion-color-base: var(--ion-color-cu);
-  --ion-color-base-rgb: var(--ion-color-cu-rgb);
-  --ion-color-contrast: var(--ion-color-cu-contrast);
-  --ion-color-contrast-rgb: var(--ion-color-cu-contrast-rgb);
-  --ion-color-shade: var(--ion-color-cu-shade);
-  --ion-color-tint: var(--ion-color-cu-tint);
 }

@@ -1,15 +1,15 @@
-import { ApiService } from "src/app/core/services/api.service";
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Router } from "@angular/router";
-import { takeUntil } from "rxjs/operators";
-import { BehaviorSubject, Subject } from "rxjs";
+import { ApiService } from 'src/app/core/services/api.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.page.html",
-  styleUrls: ["./home.page.scss"]
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss']
 })
-export class HomePage implements OnDestroy {
+export class LoginPage implements OnDestroy {
   username: string;
   password: string;
   destroyed$ = new Subject();
@@ -22,13 +22,13 @@ export class HomePage implements OnDestroy {
     const data = { username: this.username, password: this.password };
 
     this.apiService
-      .post<any>("auth/login", data)
+      .post<any>('auth/login', data)
       .pipe(takeUntil(this.destroyed$))
       .subscribe(
         response => {
           console.log(response);
-          localStorage.setItem("token", response.token);
-          this.router.navigate(["/stdinfo"]);
+          localStorage.setItem('token', response.token);
+          this.router.navigate(['/stdinfo']);
         },
         error => {
           if (error.status === 404) {
