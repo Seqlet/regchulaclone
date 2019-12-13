@@ -10,6 +10,15 @@
       padding-left: 40px;
       align-self: flex-start;
     }
+    &-error{
+      font-family: cub;
+      border-radius: 4px;
+      align-self: center;
+      width: 90%;
+      border: 2px solid #d73539;
+      padding: 15px;
+      margin: 10px;
+    }
   }
   &-logo {
     font-family: cur;
