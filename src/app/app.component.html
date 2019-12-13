@@ -1,3 +1,6 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  <div *ngIf="hasTab">
+    <app-tabs [activeTab]="activeTab"></app-tabs>
+</div>
 </ion-app>
