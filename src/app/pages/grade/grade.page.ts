@@ -1,6 +1,4 @@
-
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-grade',
@@ -9,10 +7,9 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class GradePage implements OnInit {
 
-  constructor(private apiService: ApiService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.apiService.get("grade").subscribe(console.log);
   }
 
 }
