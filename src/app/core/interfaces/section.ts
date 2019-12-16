@@ -7,4 +7,5 @@ export interface Section {
     instructor: string;
     capacity: number;
     enrolledStudent: string[];
+    _id: string
   }

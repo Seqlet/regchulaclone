@@ -1,3 +1,4 @@
+import { IUser } from "./../../core/interfaces/iuser";
 import { ApiService } from "src/app/core/services/api.service";
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
@@ -16,6 +17,7 @@ export class LoginPage implements OnDestroy {
   destroyed$ = new Subject();
   userNotFound = false;
   wpass = false;
+  userData: IUser;
   constructor(
     private apiService: ApiService,
     private authService: AuthService,
@@ -25,15 +27,17 @@ export class LoginPage implements OnDestroy {
     this.userNotFound = false;
     this.wpass = false;
     const data = { username: this.username, password: this.password };
-
     this.apiService
       .post<any>("auth/login", data)
       .pipe(takeUntil(this.destroyed$))
       .subscribe(
         response => {
           console.log(response);
+          this.authService.getUserInfo(response);
           this.authService.setUserInfo(response);
+          this.password="";
           this.router.navigate(["/stdinfo"]);
+          
         },
         error => {
           if (error.status === 404) {

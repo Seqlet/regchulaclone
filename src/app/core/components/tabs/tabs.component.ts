@@ -12,7 +12,6 @@ export class TabsComponent implements OnInit {
   constructor() {}
 
   get ActiveTab() {
-    console.log(this.activeTab)
     return ActiveTab;
   }
 

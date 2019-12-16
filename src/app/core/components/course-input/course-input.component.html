@@ -1,0 +1,14 @@
+<div class="select-course">
+  <app-select-input
+    (select)="selectCourseID($event)"
+    [items]="courseIDs"
+  ></app-select-input>
+  <app-select-input
+    *ngIf="sections$ | async as sections"
+    [items]="sections"
+    (select)="selectSection($event, sections)"
+  ></app-select-input>
+</div>
+<div *ngIf="courseInfo$ | async as courseInfo" class="select-info">
+  {{ courseInfo.name }}
+</div>
