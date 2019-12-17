@@ -34,8 +34,6 @@ export class RegisPage implements OnInit {
   }
 
   get coursesToRegisterMock() {
-    // just for iterate inside html template
-    // return Array(this.registerService.coursesToRegister$.value.length).fill(0);
     return this.registerService.coursesToRegister$.value;
   }
 
@@ -49,7 +47,6 @@ export class RegisPage implements OnInit {
       alert(response);
     },
     error =>{
-      console.log(error);
       alert(error.statusText);
     });
   }
