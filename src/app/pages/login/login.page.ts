@@ -11,7 +11,7 @@ import { AuthService } from "src/app/core/services/auth.service";
   templateUrl: "./login.page.html",
   styleUrls: ["./login.page.scss"]
 })
-export class LoginPage implements OnDestroy {
+export class LoginPage implements OnDestroy, OnInit  {
   username: string;
   password: string;
   destroyed$ = new Subject();
@@ -32,7 +32,6 @@ export class LoginPage implements OnDestroy {
       .pipe(takeUntil(this.destroyed$))
       .subscribe(
         response => {
-          console.log(response);
           this.authService.getUserInfo(response);
           this.authService.setUserInfo(response);
           this.password="";
@@ -45,9 +44,13 @@ export class LoginPage implements OnDestroy {
           } else if (error.status === 401) {
             this.wpass = true;
           }
-          console.log(error);
         }
       );
+  }
+  ngOnInit() {
+    this.username = '6115611618';
+    this.password = 'h7rWVkBmtiA_eBd';
+    this.submit({});
   }
 
   ngOnDestroy() {
