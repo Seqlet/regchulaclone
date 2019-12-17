@@ -3,7 +3,7 @@ import { ApiService } from "src/app/core/services/api.service";
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { takeUntil } from "rxjs/operators";
-import { BehaviorSubject, Subject } from "rxjs";
+import { Subject } from "rxjs";
 import { AuthService } from "src/app/core/services/auth.service";
 
 @Component({
@@ -34,7 +34,7 @@ export class LoginPage implements OnDestroy, OnInit {
         response => {
           this.authService.getUserInfo(response);
           this.authService.setUserInfo(response);
-          this.password="";
+          this.password = "";
           this.router.navigate(["/stdinfo"]);
         },
         error => {
@@ -48,8 +48,8 @@ export class LoginPage implements OnDestroy, OnInit {
   }
 
   ngOnInit() {
-    this.username = '6180968279';
-    this.password = 'aGDwSB5W0Ef5ojB';
+    this.username = "6180968279";
+    this.password = "aGDwSB5W0Ef5ojB";
     this.submit({});
   }
 

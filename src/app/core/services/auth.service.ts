@@ -13,7 +13,6 @@ export class AuthService {
   constructor() {}
 
   setUserInfo(userInfo: UserLoginInfo) {
-    console.log("setUserInfo");
     localStorage.setItem("token", userInfo.token);
     this.userInfo$.next(userInfo);
     this.isAuthenticated$.next(true);
