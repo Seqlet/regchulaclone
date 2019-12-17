@@ -3,7 +3,7 @@ import { ApiService } from "src/app/core/services/api.service";
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { takeUntil } from "rxjs/operators";
-import { BehaviorSubject, Subject } from "rxjs";
+import { Subject } from "rxjs";
 import { AuthService } from "src/app/core/services/auth.service";
 
 @Component({
@@ -11,7 +11,7 @@ import { AuthService } from "src/app/core/services/auth.service";
   templateUrl: "./login.page.html",
   styleUrls: ["./login.page.scss"]
 })
-export class LoginPage implements OnDestroy, OnInit  {
+export class LoginPage implements OnDestroy, OnInit {
   username: string;
   password: string;
   destroyed$ = new Subject();
@@ -31,12 +31,11 @@ export class LoginPage implements OnDestroy, OnInit  {
       .post<any>("auth/login", data)
       .pipe(takeUntil(this.destroyed$))
       .subscribe(
-        response => {
+        (response:any) => {
           this.authService.getUserInfo(response);
           this.authService.setUserInfo(response);
-          this.password="";
+          this.password = "";
           this.router.navigate(["/stdinfo"]);
-          
         },
         error => {
           if (error.status === 404) {
@@ -50,6 +49,12 @@ export class LoginPage implements OnDestroy, OnInit  {
   ngOnInit() {
     this.username = '6115611618';
     this.password = 'h7rWVkBmtiA_eBd';
+    this.submit({});
+  }
+
+  ngOnInit() {
+    this.username = "6180968279";
+    this.password = "aGDwSB5W0Ef5ojB";
     this.submit({});
   }
 

@@ -7,15 +7,17 @@ const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
   {
     path: "login",
-    loadChildren: () => import("./pages/login/login.module").then( m => m.LoginPageModule),
-    
+    loadChildren: () =>
+      import("./pages/login/login.module").then(m => m.LoginPageModule),
+
     data: {
       hasTab: false
     }
   },
   {
     path: "regis",
-    loadChildren: () => import("./pages/regis/regis.module").then( m => m.RegisPageModule),
+    loadChildren: () =>
+      import("./pages/regis/regis.module").then(m => m.RegisPageModule),
     canActivate: [AuthGuard],
     data: {
       hasTab: true,
@@ -24,7 +26,10 @@ const routes: Routes = [
   },
   {
     path: "regisout",
-    loadChildren: () => import("./pages/regisout/regisout.module").then( m => m.RegisoutPageModule),
+    loadChildren: () =>
+      import("./pages/regisout/regisout.module").then(
+        m => m.RegisoutPageModule
+      ),
     canActivate: [AuthGuard],
     data: {
       hasTab: true,
@@ -33,7 +38,8 @@ const routes: Routes = [
   },
   {
     path: "grade",
-    loadChildren: () => import("./pages/grade/grade.module").then( m => m.GradePageModule),
+    loadChildren: () =>
+      import("./pages/grade/grade.module").then(m => m.GradePageModule),
     canActivate: [AuthGuard],
     data: {
       hasTab: true,
@@ -42,7 +48,10 @@ const routes: Routes = [
   },
   {
     path: "withdraw",
-    loadChildren: () => import("./pages/withdraw/withdraw.module").then( m => m.WithdrawPageModule),
+    loadChildren: () =>
+      import("./pages/withdraw/withdraw.module").then(
+        m => m.WithdrawPageModule
+      ),
     canActivate: [AuthGuard],
     data: {
       hasTab: true,
@@ -51,13 +60,14 @@ const routes: Routes = [
   },
   {
     path: "stdinfo",
-    loadChildren: () => import("./pages/stdinfo/stdinfo.module").then( m => m.StdinfoPageModule),
+    loadChildren: () =>
+      import("./pages/stdinfo/stdinfo.module").then(m => m.StdinfoPageModule),
     canActivate: [AuthGuard],
     data: {
       hasTab: true,
       activeTab: ActiveTab.studentInfo
     }
-  },
+  }
 ];
 
 @NgModule({
@@ -66,4 +76,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
