@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -25,29 +25,36 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-@font-face{
-    font-family: 'ChulaCharasNewB';
-    src: url(src/assets/fonts/ChulaCharasNew-Bold.woff2);
+@font-face {
+  font-family: "ChulaCharasNewB";
+  src: url(src/assets/fonts/ChulaCharasNew-Bold.woff2);
 }
-@font-face{
-    font-family: 'ChulaCharasNew';
-    src: url(src/assets/fonts/ChulaCharasNew.woff2);
+@font-face {
+  font-family: "ChulaCharasNew";
+  src: url(src/assets/fonts/ChulaCharasNew.woff2);
 }
-@font-face{
-    font-family: 'cub';
-    src: url(src/assets/fonts/CHULALONGKORN-BOLD.woff2);
+@font-face {
+  font-family: "cub";
+  src: url(src/assets/fonts/CHULALONGKORN-BOLD.woff2);
 }
-@font-face{
-    font-family: 'cur';
-    src: url(src/assets/fonts/CHULALONGKORN-Regular.woff2);
+@font-face {
+  font-family: "cur";
+  src: url(src/assets/fonts/CHULALONGKORN-Regular.woff2);
+}
+@import "~normalize.css";
 
-}
-@import '~normalize.css';
-
-html{
-    background-color: whitesmoke;
+html {
+  background-color: whitesmoke;
 }
 
 :focus {
-    outline: none;
+  outline: none;
+}
+
+ion-content {
+  --ion-background-color: whitesmoke;
+}
+
+* {
+  font-family: cur;
 }

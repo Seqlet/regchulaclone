@@ -1,0 +1,32 @@
+.withdraw {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &-container {
+    margin: 30px 10px;
+  }
+  &-table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &-items {
+      padding: 10px;
+    }
+    &-checkbox {
+      margin: 10px 5px;
+    }
+  }
+}
+
+.form {
+  &-btn {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    &-submit {
+      font-size: 17px;
+      width: 100%;
+      background-color: whitesmoke;
+    }
+  }
+}
