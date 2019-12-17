@@ -1,9 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>withdraw</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <div class="withdraw">
+    <div
+      class="withdraw-container"
+      *ngIf="coursesAvailable$ | async as courses"
+    >
+      <div class="withdraw-table">
+        <div class="withdraw-table-items">
+          Course ID
+        </div>
+        <div class="withdraw-table-items">
+          Name
+        </div>
+        <div class="withdraw-table-items">
+          Credits
+        </div>
+      </div>
+      <div class="withdraw-table" *ngFor="let course of courses; index as i">
+        <div class="withdraw-table-items">
+          {{course.courseNumber}}
+        </div>
+        <div class="withdraw-table-items">
+          {{course.name}}
+        </div>
+        <div class="withdraw-table-items">
+          {{course.credit}}
+        </div>
+        <input class="withdraw-table-checkbox" (click)="handleSelect($event, course)" type="checkbox" />
+      </div>
+    </div>
+    <div class="form-btn">
+      <button class="form-btn-submit" (click)="withdraw()">
+        Withdraw
+      </button>
+    </div>
+  </div>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpEvent } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
@@ -12,7 +12,7 @@ export interface ApiInterface {
   post<T>(
     url: string,
     params?: { [param: string]: string | string[] }
-  ): Observable<T>;
+  ): Observable<HttpEvent<T>>;
   put<T>(
     url: string,
     params?: { [param: string]: string | string[] }
@@ -42,9 +42,10 @@ export class ApiService implements ApiInterface {
   }
   post<T>(
     url: string,
-    params?: { [param: string]: string | string[] }
-  ): Observable<T> {
-    return this.http.post<T>(ApiService.API_BASE_URL + url, params);
+    params?: { [param: string]: string | string[] },
+    options?: any
+  ): Observable<HttpEvent<T>> {
+    return this.http.post<T>(ApiService.API_BASE_URL + url, params, options);
   }
 
   put<T>(

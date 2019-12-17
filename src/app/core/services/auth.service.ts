@@ -18,7 +18,6 @@ export class AuthService {
     this.isAuthenticated$.next(true);
   }
   getUserInfo(userData: IUser) {
-    console.log("getUserInfo");
     this.userData$.next(userData);
   }
   logout() {
