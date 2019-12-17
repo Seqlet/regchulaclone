@@ -1,17 +1,29 @@
 <ion-content>
-  <div class="header">Course Registration</div>
-  <div class="form">
-    <div
-      *ngFor="let _ of coursesToRegisterMock; index as i"
-      class="form-content"
-    >
-      <app-course-input
-        (newCourse)="setCourse($event, i)"
-        (newCourseID)="setCourseID($event, i)"
-        [courseIDs]="courseByID$ | async"
-      ></app-course-input>
+  <div class="container">
+    <div class="header">Course Registration</div>
+    <div class="form">
+      <div
+        *ngFor="let _ of coursesToRegisterMock; index as i"
+        class="form-content"
+      >
+        <app-course-input
+          (newCourse)="setCourse($event, i)"
+          (newCourseID)="setCourseID($event, i)"
+          [courseIDs]="courseByID$ | async"
+        ></app-course-input>
+      </div>
+      <div class="form-btn">
+        <button class="form-btn-submit" (click)="addCourse()">
+          Add Course
+        </button>
+        <button
+          [disabled]="disableButton"
+          class="form-btn-submit"
+          (click)="submit()"
+        >
+          Submit
+        </button>
+      </div>
     </div>
-    <button [disabled]="disableButton" class="form-submit" (click)="submit()">Submit</button>
-    <button class="form-submit" (click)="addCourse()">Add Course</button>
   </div>
 </ion-content>

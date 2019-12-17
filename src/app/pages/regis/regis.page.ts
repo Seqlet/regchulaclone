@@ -44,7 +44,14 @@ export class RegisPage implements OnInit {
   }
 
   submit() {
-    this.registerService.submit().subscribe(console.log);
+    this.registerService.submit()
+    .subscribe(response => {
+      alert(response);
+    },
+    error =>{
+      console.log(error);
+      alert(error.statusText);
+    });
   }
 
   ngOnInit() {}
