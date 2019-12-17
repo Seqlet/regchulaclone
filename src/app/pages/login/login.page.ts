@@ -31,7 +31,7 @@ export class LoginPage implements OnDestroy, OnInit {
       .post<any>("auth/login", data)
       .pipe(takeUntil(this.destroyed$))
       .subscribe(
-        response => {
+        (response:any) => {
           this.authService.getUserInfo(response);
           this.authService.setUserInfo(response);
           this.password = "";
