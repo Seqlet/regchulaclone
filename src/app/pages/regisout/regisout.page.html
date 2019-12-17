@@ -1,8 +1,35 @@
 <ion-content>
-  <div class="container">
-    <div class="header">Registration Result</div>
-    <div class="status">
-      <div *ngFor="let status of courseStatus"></div>
+  <div class="status">
+    <div class="status-header">Registration Result</div>
+    <div class="status-container">
+      <div class="status-table">
+        <div class="status-table-items">
+          Course ID
+        </div>
+        <div class="status-table-items">
+          Name
+        </div>
+        <div class="status-table-items">
+          Credits
+        </div>
+        <div class="status-table-items">
+          Status
+        </div>
+      </div>
+      <div class="status-table" *ngFor="let course of courseStatus">
+        <div class="status-table-items-name">
+          {{course.courseNumber}}
+        </div>
+        <div class="status-table-items-name">
+          {{course.engName}}
+        </div>
+        <div class="status-table-items">
+          {{course.credit}}
+        </div>
+        <div class="status-table-items">
+          {{course.status}}
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>
