@@ -1,0 +1,33 @@
+.status {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &-header {
+      margin-top: 40px;
+      margin-left: 20px;
+      font-size: 20px;
+    }
+    &-container {
+      margin: 0px 10px;
+    }
+    &-table {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      &-items {
+        padding: 10px;
+        &-name {
+          width: 60px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          
+        }
+      }
+      &-checkbox {
+        margin: 10px 5px;
+      }
+    }
+  }
+  

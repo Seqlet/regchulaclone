@@ -10,8 +10,12 @@ import { Observable } from "rxjs";
 })
 export class WithdrawPage implements OnInit {
   coursesAvailable$: Observable<ICourseInputDTO[]>;
+  disable = true;
   constructor(private withdrawService: WithdrawService) {
     this.coursesAvailable$ = this.withdrawService.coursesAvailable$;
+    this.withdrawService.coursesToWithdraw$.subscribe(courses => {
+      this.disable = courses.length === 0;
+    })
   }
 
   handleSelect(event, course: ICourseInputDTO) {

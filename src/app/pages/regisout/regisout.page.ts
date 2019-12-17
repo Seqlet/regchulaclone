@@ -32,11 +32,11 @@ export class RegisoutPage implements OnInit, OnDestroy {
       case CourseUserStatus.pending:
         return "Pending";
       case CourseUserStatus.registered:
-        return "Registration Success";
+        return "Success";
       case CourseUserStatus.registerFailed:
-        return "Registration Failed";
+        return "Failed";
       case CourseUserStatus.graded:
-        return "Registration Success";
+        return "Success";
     }
   }
 

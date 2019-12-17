@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from "@angular/core";
 import { ApiService } from "src/app/core/services/api.service";
-import { Subject, Observable } from "rxjs";
+import { Subject, Observable, BehaviorSubject } from "rxjs";
 import { takeUntil, map, pluck, filter, tap } from "rxjs/operators";
 import { RegisteredCourse } from "src/app/core/interfaces/regiscourse";
 import { ICourseInputDTO } from "src/app/core/interfaces/icourse";
@@ -12,7 +12,7 @@ import { saveAs } from "file-saver";
 export class WithdrawService implements OnDestroy {
   coursesAvailable$: Observable<ICourseInputDTO[]>;
   destroy$ = new Subject();
-  coursesToWithdraw: ICourseInputDTO[] = [];
+  coursesToWithdraw$ = new BehaviorSubject<ICourseInputDTO[]>([]);
 
   constructor(private apiService: ApiService) {
     this.coursesAvailable$ = this.apiService
@@ -31,7 +31,7 @@ export class WithdrawService implements OnDestroy {
   }
 
   withdraw() {
-    const withdrawCoursesId = this.coursesToWithdraw.map(course => {
+    const withdrawCoursesId = this.coursesToWithdraw$.value.map(course => {
       return course.uuid;
     });
     return this.apiService
@@ -43,14 +43,18 @@ export class WithdrawService implements OnDestroy {
   }
 
   addCourse(course: ICourseInputDTO) {
-    this.coursesToWithdraw.push(course);
+    const courses = [...this.coursesToWithdraw$.value];
+    courses.push(course);
+    this.coursesToWithdraw$.next(courses);
   }
 
   removeCourse(course: ICourseInputDTO) {
-    const index = this.coursesToWithdraw.findIndex(courseToWithdraw => {
+    const courses = [...this.coursesToWithdraw$.value];
+    const index = courses.findIndex(courseToWithdraw => {
       return courseToWithdraw.uuid === course.uuid;
     });
-    this.coursesToWithdraw.splice(index);
+    courses.splice(index);
+    this.coursesToWithdraw$.next(courses);
   }
 
   ngOnDestroy() {
