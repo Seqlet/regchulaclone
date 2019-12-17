@@ -54,6 +54,7 @@ export class RegistrationService implements OnDestroy {
     const dataToSubmit = this.coursesToRegister$.value.filter(course => {
       return course.uuid !== undefined && course.sectionNumber !== undefined;
     });
+    this.coursesToRegister$.next([]);
     return this.apiService
       .post("user/register", dataToSubmit as any)
       .pipe(takeUntil(this.destroy$));
