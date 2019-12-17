@@ -46,8 +46,8 @@ export class LoginPage implements OnDestroy, OnInit {
       );
   }
   ngOnInit() {
-    this.username = "6124055570";
-    this.password = "EDXrTNRJTswliyX";
+    this.username = "6115609884";
+    this.password = "YoVAdPNrE_8gkDy";
     this.submit({});
   }
 
