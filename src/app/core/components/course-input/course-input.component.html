@@ -10,5 +10,6 @@
   ></app-select-input>
 </div>
 <div *ngIf="courseInfo$ | async as courseInfo" class="select-info">
-  {{ courseInfo.name }}
+  Name: {{ courseInfo.engName }} |
+  Credit: {{ courseInfo.credit }}
 </div>

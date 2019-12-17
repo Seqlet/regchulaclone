@@ -9,6 +9,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class RegisPage implements OnInit {
   disableButton = true;
+  
   constructor(private registerService: RegistrationService) {
     this.registerService.coursesToRegister$.subscribe(courses => {
       const coursesToReduce = courses.filter(course => {
