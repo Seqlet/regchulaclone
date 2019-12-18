@@ -1,6 +1,7 @@
 import { CourseUserStatus } from "./../../core/interfaces/enum";
 import { RegistrationService } from "./registration.service";
 import { Component, OnInit } from "@angular/core";
+import { ToastController } from "@ionic/angular";
 
 @Component({
   selector: "app-regis",
@@ -9,8 +10,11 @@ import { Component, OnInit } from "@angular/core";
 })
 export class RegisPage implements OnInit {
   disableButton = true;
-  
-  constructor(private registerService: RegistrationService) {
+
+  constructor(
+    private registerService: RegistrationService,
+    private toastController: ToastController
+  ) {
     this.registerService.coursesToRegister$.subscribe(courses => {
       const coursesToReduce = courses.filter(course => {
         return course.uuid || course.sectionNumber;
@@ -43,13 +47,34 @@ export class RegisPage implements OnInit {
   }
 
   submit() {
-    this.registerService.submit()
-    .subscribe(response => {
-      alert(response);
-    },
-    error =>{
-      alert(error.statusText);
-    });
+    this.registerService.submit().subscribe(
+      response => {
+        const failedCourses = (response as any).failed;
+        for (const course of failedCourses) {
+          this.presentToast(course.courseNumber + ":" + course.message);
+        }
+      },
+      async error => {
+        const failedCourses = error.error.failed;
+        for (const course of failedCourses) {
+          this.presentToast(course.courseNumber + ":" + course.message);
+        }
+      }
+    );
+  }
+
+  presentToast(message: string) {
+    this.toastController
+      .create({
+        message,
+        duration: 2000,
+        animated: true,
+        showCloseButton: true,
+        closeButtonText: "X"
+      })
+      .then(mobj => {
+        mobj.present();
+      });
   }
 
   ngOnInit() {}
