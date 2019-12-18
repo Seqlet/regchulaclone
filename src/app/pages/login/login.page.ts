@@ -11,7 +11,7 @@ import { AuthService } from "src/app/core/services/auth.service";
   templateUrl: "./login.page.html",
   styleUrls: ["./login.page.scss"]
 })
-export class LoginPage implements OnDestroy, OnInit {
+export class LoginPage implements OnDestroy {
   username: string;
   password: string;
   destroyed$ = new Subject();

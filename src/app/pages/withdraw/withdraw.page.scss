@@ -16,6 +16,9 @@
     justify-content: space-between;
     &-items {
       padding: 10px;
+      &-name{
+        text-align: center;
+      }
     }
     &-checkbox {
       margin: 10px 5px;
