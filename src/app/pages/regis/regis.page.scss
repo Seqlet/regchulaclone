@@ -1,0 +1,22 @@
+.header {
+  margin-top: 40px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+.form {
+  margin-bottom: 60px;
+  &-content {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  &-btn {
+      margin-top:10px;
+      display: flex;
+      justify-content: center;
+    &-submit {
+      font-size: 17px;
+      width: 100%;
+      background-color: whitesmoke;
+    }
+  }
+}

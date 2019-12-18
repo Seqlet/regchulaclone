@@ -1,0 +1,12 @@
+<ion-content>
+  <div class="container">
+    <img src="/assets/cuphoto.jpg" />
+    <div *ngIf="userData$ | async as user" class="info">
+      <div class="info-part">{{user.name}}</div>
+      <div class="info-part">{{user.username}}</div>
+      <div class="info-part">Engineering</div>
+      <div class="info-part">{{user.major}}</div>
+    </div>
+    <button class="logout" (click)="logout()">Log out</button>
+  </div>
+</ion-content>

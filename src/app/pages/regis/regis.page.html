@@ -1,13 +1,29 @@
-
-<ion-header>
-  <ion-toolbar>
-    <ion-title>regis</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-    <ion-button expand="block" routerLink="" routerDirection="root">
-      la la la
-    </ion-button>
-
+  <div class="container">
+    <div class="header">Course Registration</div>
+    <div class="form">
+      <div
+        *ngFor="let _ of coursesToRegisterMock; index as i"
+        class="form-content"
+      >
+        <app-course-input
+          (newCourse)="setCourse($event, i)"
+          (newCourseID)="setCourseID($event, i)"
+          [courseIDs]="courseByID$ | async"
+        ></app-course-input>
+      </div>
+      <div class="form-btn">
+        <button class="form-btn-submit" (click)="addCourse()">
+          Add Course
+        </button>
+        <button
+          [disabled]="disableButton"
+          class="form-btn-submit"
+          (click)="submit()"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
 </ion-content>

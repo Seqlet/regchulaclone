@@ -1,0 +1,8 @@
+<select (change)="select.emit($event.target.value)">
+  <option></option>
+  <ng-container *ngFor="let item of items; index as i">
+    <option [value]="i">
+      {{ item.value }}
+    </option>
+  </ng-container>
+</select>

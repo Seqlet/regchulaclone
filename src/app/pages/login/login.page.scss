@@ -1,0 +1,76 @@
+@import "src/theme/variables.scss";
+.login {
+  &-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &-text {
+      font-family: cur;
+      font-size: 20px;
+      padding-left: 20px;
+      align-self: flex-start;
+      margin-bottom: 5px;
+    }
+    &-error{
+      font-family: cub;
+      border-radius: 4px;
+      align-self: center;
+      text-align: center;
+      width: 87%;
+      border: 2px solid #ce4d42;
+      padding: 15px;
+      margin: 25px;
+    }
+  }
+  &-logo {
+    font-family: cur;
+    font-size: 28px;
+    padding-top: 25px;
+    padding-left: 20px;
+    margin-bottom:10px ;
+  }
+  &-form {
+    align-self: center;
+    font-family: cur;
+    width: 100%;
+    padding: 0px 20px 0px;
+    input {
+      width: 100%;
+      border-radius: 4px;
+      border: 5px;
+      height: 48px; 
+    }
+    &-error {
+      height: 23px;
+      margin-top: 2px;
+    }
+    &-btn {
+      background-color: #eff0f1;
+      border: 5px;
+      border-radius: 4px;
+      height: 48px;
+      color: #b0b0b0;
+      width: 100%;
+      font-size: 16px;
+    }
+    &-btn1 {
+        background-color:#446579;
+        border: 5px;
+        border-radius: 4px;
+        height: 48px;
+        color: #ffffff;
+        width: 100%;
+        font-size: 16px;
+      }
+  }
+  background: linear-gradient(0deg, rgba(219,229,229,1) 0%, rgba(236,181,204,1) 100%);
+  height: 100%;
+  width: 100%;
+}
+.alert{
+  color:#446579;
+  font-size: 14px;
+}
+input{
+  padding-left: 10px;
+}

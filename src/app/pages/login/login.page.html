@@ -1,0 +1,65 @@
+<ion-content>
+  <div class="login">
+    <div class="login-logo">
+      Reg Chula
+    </div>
+    <div class="login-body">
+      <h1 class="login-body-text">
+        Sign In
+      </h1>
+      <form #f="ngForm" (ngSubmit)="submit(f)">
+        <div class="login-form">
+          <input
+            id="name"
+            name="name"
+            required
+            minlength="10"
+            maxlength="10"
+            [(ngModel)]="username"
+            #name="ngModel"
+            placeholder="Student Id"
+          />
+
+          <div class="login-form-error">
+            <div
+              *ngIf="name.invalid && (name.dirty || name.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="name.errors.required">
+                Student ID is required.
+              </div>
+              <div *ngIf="name.errors.minlength">
+                Student Id must be at 10 characters long.
+              </div>
+              <div *ngIf="name.errors.maxlength">
+                Student Id must be at 10 characters long.
+              </div>
+            </div>
+          </div>
+          <input
+            type="password"
+            id="pass"
+            name="pass"
+            required
+            [(ngModel)]="password"
+            #pass="ngModel"
+            placeholder="Password"
+          />
+          <div class="login-form-error">
+            <div
+              *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="pass.errors.required">
+                Password is required.
+              </div>
+            </div>
+          </div>
+          <button [ngClass]="{ 'login-form-btn' : f.invalid , 'login-form-btn1' : f.valid }" [disabled]="f.invalid">Sign in</button>
+        </div>
+      </form>
+      <div *ngIf="userNotFound" class="login-body-error"> User Not Found </div>
+      <div *ngIf="wpass" class="login-body-error"> Wrong Password </div>
+    </div>
+  </div>
+</ion-content>
