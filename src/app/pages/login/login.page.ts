@@ -32,7 +32,6 @@ export class LoginPage implements OnDestroy, OnInit {
       .pipe(takeUntil(this.destroyed$))
       .subscribe(
         (response: any) => {
-          this.authService.getUserInfo(response);
           this.authService.setUserInfo(response);
           this.password = "";
           this.router.navigate(["/stdinfo"]);
@@ -47,8 +46,8 @@ export class LoginPage implements OnDestroy, OnInit {
       );
   }
   ngOnInit() {
-    this.username = "6115611618";
-    this.password = "h7rWVkBmtiA_eBd";
+    this.username = "6115609884";
+    this.password = "YoVAdPNrE_8gkDy";
     this.submit({});
   }
 

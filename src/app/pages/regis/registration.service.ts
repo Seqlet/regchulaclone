@@ -1,22 +1,37 @@
 import { ICourseInputDTO } from "./../../core/interfaces/icourse";
 import { ApiService } from "./../../core/services/api.service";
 import { Injectable, OnDestroy } from "@angular/core";
-import { takeUntil, map, filter, tap } from "rxjs/operators";
+import { takeUntil, map, filter, tap, shareReplay } from "rxjs/operators";
 import { Subject, Observable, BehaviorSubject } from "rxjs";
+import { AuthService } from "src/app/core/services/auth.service";
 
 @Injectable({
   providedIn: "root"
 })
 export class RegistrationService implements OnDestroy {
   destroy$ = new Subject();
-  availableCourses$ = this.apiService
-    .get<ICourseInputDTO[]>("commons/courses")
-    .pipe(takeUntil(this.destroy$));
+  availableCourses$: Observable<ICourseInputDTO[]>;
   availableCourses: ICourseInputDTO[];
   availableCoursesByID$: Observable<{ key: string; value: string }[]>;
   coursesToRegister$ = new BehaviorSubject<any[]>([]);
 
-  constructor(private apiService: ApiService) {
+  constructor(
+    private apiService: ApiService,
+    private authService: AuthService
+  ) {
+    this.availableCourses$ = this.apiService
+      .get<ICourseInputDTO[]>("commons/courses")
+      .pipe(
+        takeUntil(this.destroy$),
+        shareReplay(1),
+        map(courses => {
+          return courses.filter(course => {
+            const requiredStudentType = this.authService.userInfo$.value
+              .studentType;
+            return course.studentType === requiredStudentType;
+          });
+        })
+      );
     this.availableCourses$.subscribe(courses => {
       this.availableCourses = courses;
     });

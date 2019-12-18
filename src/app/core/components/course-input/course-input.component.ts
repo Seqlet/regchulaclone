@@ -36,7 +36,6 @@ export class CourseInputComponent implements OnInit {
 
   selectCourseID(position: number) {
     const courseInfo = this.registerService.getCourseByPosition(position);
-    // this.registerService.setCourseID(courseInfo.uuid, position);
     this.courseInfo$.next(courseInfo);
     this.newCourseID.emit(courseInfo);
   }
