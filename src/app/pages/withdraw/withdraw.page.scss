@@ -18,6 +18,10 @@
       padding: 10px;
       &-name{
         text-align: center;
+        width: 174px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
       }
     }
     &-checkbox {
